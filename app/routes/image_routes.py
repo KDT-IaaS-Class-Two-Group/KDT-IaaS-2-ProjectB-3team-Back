@@ -1,7 +1,8 @@
 # app/routes/image_routes.py
-from flask import Blueprint, request, jsonify
+from flask import request, jsonify
+from app.utils.generator.bp_generator import generate_blueprint
 
-image_bp = Blueprint('image_bp', __name__)
+image_bp = generate_blueprint("image_bp")
 
 @image_bp.route('/api/upload', methods=['POST'])
 def upload_image():
@@ -11,6 +12,5 @@ def upload_image():
     file = request.files['file']
     
     print(file)
-    
     
     return jsonify({'result': True})

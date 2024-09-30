@@ -1,4 +1,5 @@
 from flask import Blueprint
 
-# 라우트 블루프린트 생성
-main = Blueprint('main', __name__)
+def generate_blueprint(bp_name):
+    """주어진 이름으로 블루프린트를 생성하는 함수"""
+    return Blueprint(bp_name, __name__)
