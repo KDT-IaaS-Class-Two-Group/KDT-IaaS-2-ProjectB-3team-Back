@@ -1,8 +1,12 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
-from ..app.routes.image_routes import image_bp  # image_routes 추가
-from app.routes import register_routes  # 라우트 등록 함수 가져오기
+# from ..app.routes.image_routes import image_bp
+# from .routes.modules.register_routes import register_routes
+# from .utils.generator.bp_generator import main
+from app.routes.image_routes import image_bp
+from app.routes.modules.register_routes import register_routes
+from app.utils.generator.bp_generator import main
 
 def create_app():
     # .env 파일 로드
