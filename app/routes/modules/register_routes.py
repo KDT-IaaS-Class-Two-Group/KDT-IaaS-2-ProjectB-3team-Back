@@ -1,0 +1,1 @@
+register_routes = lambda app, *blueprints: [app.register_blueprint(bp) for bp in blueprints]

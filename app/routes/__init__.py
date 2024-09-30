@@ -1,5 +1,6 @@
 from flask import Blueprint
 from .image_routes import image_bp  # image_routes 추가
+from .modules.register_routes import register_routes
 
 # 라우트 블루프린트 생성
 main = Blueprint('main', __name__)
@@ -13,3 +14,4 @@ def home():
 def register_routes(app):
     app.register_blueprint(main)
     app.register_blueprint(image_bp)  # image_routes 추가
+    
