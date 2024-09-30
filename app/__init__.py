@@ -1,14 +1,16 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
-# from ..app.routes.image_routes import image_bp
-# from .routes.modules.register_routes import register_routes
-# from .utils.generator.bp_generator import main
-from app.routes.image_routes import image_bp
 from app.routes.modules.register_routes import register_routes
-from app.utils.generator.bp_generator import main
+from app.utils.generator.bp_generator import generate_blueprint
+
+
 
 def create_app():
+    
+    main_bp = generate_blueprint("main")
+    image_bp = generate_blueprint("image_bp")
+    
     # .env 파일 로드
     load_dotenv()
 
@@ -22,6 +24,6 @@ def create_app():
     CORS(app)
 
     # 라우트 블루프린트 등록
-    register_routes(app, main, image_bp)  # main과 image_routes를 함께 등록
+    register_routes(app, main_bp, image_bp)  # main과 image_routes를 함께 등록
 
     return app
