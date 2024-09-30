@@ -1,4 +1,4 @@
-from pathlib import Path
+import os
 
-# 경로 조합 모듈
-path_joiner = lambda *args: Path(*args).as_posix()
+# 경로 조합
+path_joiner = lambda *args: os.path.join(*args)
