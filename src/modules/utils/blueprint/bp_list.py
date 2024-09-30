@@ -1,5 +1,5 @@
-from app.static.utils.blueprint.bp_list_static import Blueprints
-from app.utils.generator.bp_generator import generate_blueprint
+from src.static.utils.blueprint.bp_list_static import Blueprints
+from src.modules.utils.generator.bp_generator import generate_blueprint
 
 class BlueprintContainer:
     def __init__(self):
