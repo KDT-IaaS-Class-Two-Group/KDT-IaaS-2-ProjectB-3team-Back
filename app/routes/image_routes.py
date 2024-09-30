@@ -1,6 +1,5 @@
 # app/routes/image_routes.py
 from flask import Blueprint, request, jsonify
-from app.services.image_service import process_image
 
 image_bp = Blueprint('image_bp', __name__)
 
@@ -13,9 +12,5 @@ def upload_image():
     
     print(file)
     
-    # 이미지 처리 및 결과 얻기
-    result = process_image(file)
     
-    print(result)
-    
-    return jsonify({'result': result})
+    return jsonify({'result': True})

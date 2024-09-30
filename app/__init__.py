@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
-import os
 from app.routes import register_routes  # 라우트 등록 함수 가져오기
 
 def create_app():
@@ -16,10 +15,6 @@ def create_app():
 
     # 필요한 플러그인 초기화 (예: CORS)
     CORS(app)
-
-    # 'uploads' 디렉토리 생성
-    if not os.path.exists('uploads'):
-        os.makedirs('uploads')
 
     # 라우트 블루프린트 등록
     register_routes(app)  # main과 image_routes를 함께 등록

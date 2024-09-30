@@ -6,7 +6,7 @@ __pycache__/
 *.py[cod]
 
 # Vitual Enviroment
-ecovision
+ecovisionbe
 
 # IDE files (VSCode, PyCharm, etc.)
 .vscode/
