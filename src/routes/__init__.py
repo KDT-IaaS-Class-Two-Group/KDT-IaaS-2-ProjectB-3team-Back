@@ -3,16 +3,11 @@ from src.modules.utils.blueprint.bp_list import bp_list
 from src.modules.utils.path.path_joiner import path_joiner
 from src.modules.utils.env.env_loader import env_loader
 from src.static.env.env_list_static import EnvList
+from src.static.utils.symbols.forward_slash_static import forward_slash
+from src.static.routes.__init__static import env_values_for_join
 
-main_bp = bp_list.MAIN
-
-# main_bp.add_url_rule(path_joiner(env_loader(EnvList.MAIN_URL.value), env_loader(EnvList.EP_API.value), env_loader(EnvList.EP_ML.value)),
-#     view_func=lambda: jsonify({"route": path_joiner("api","ml")}), methods=['POST'])
-
-# main_bp.add_url_rule(path_joiner(env_loader(EnvList.MAIN_URL.value), env_loader(EnvList.EP_API.value), env_loader(EnvList.EP_ML.value)),view_func=lambda: jsonify({"route": path_joiner("api","ml")}), methods=['POST'])
-
-main_bp.add_url_rule(
-    "/api/ml",
-    view_func=lambda: jsonify({"route": "http://localhost:8000"}),
+bp_list.MAIN.add_url_rule(
+    path_joiner(forward_slash, *[env_loader(value) for value in env_values_for_join]),
+    view_func=lambda: jsonify({"route": env_loader(EnvList.ML_MAIN_URL.value)}),
     methods=["POST"]
 )
