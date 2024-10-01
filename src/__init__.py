@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_cors import CORS
-from dotenv import load_dotenv
 from src.routes.modules.register_routes import register_routes
 from src.modules.utils.blueprint.bp_list import bp_list
 
@@ -18,7 +17,6 @@ def create_app():
         app: 설정된 Flask 애플리케이션 인스턴스
     """
     
-    load_dotenv()
     app = Flask(__name__)
     app.config.from_object('config.Config')
     
