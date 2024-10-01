@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-from src.routes.modules.register_routes import register_routes
+from src.modules.routes.register_routes import register_routes
 from src.modules.utils.blueprint.bp_list import bp_list
 
 def create_app():
